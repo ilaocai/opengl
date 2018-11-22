@@ -8,8 +8,8 @@ include(FindPkgConfig)
 pkg_check_modules(GLFW REQUIRED glfw3)
 pkg_check_modules(GL REQUIRED gl)
 
-include_directories(include)
-add_executable(hello src/main.cpp)
+include_directories(include ${PROJECT_SOURCE_DIR}/../common)
+add_executable(hello src/main.cc ${PROJECT_SOURCE_DIR}/../common/window.cc)
 
 target_include_directories(hello SYSTEM PUBLIC ${GLFW_INCLUDE_DIRS})
 target_link_libraries(hello ${GLFW_LIBRARIES} ${GL_LIBRARIES})
